@@ -19,7 +19,17 @@ public:
 
     }
     bool searchBST(int target){
-        //Happy Eid Go Play
+        if(target==data){
+            return true;
+        }
+        else if(target<data&& left!=nullptr){
+           
+            return left->searchBST(target);
+        }
+        else if (target>data && right!= nullptr){
+            return right->searchBST(target);
+        }
+
     }
 
     void printInOrder(BST* node){
@@ -31,6 +41,26 @@ public:
         printInOrder(node->right);
 
 
+    }
+
+    void insert(int target){
+        if(target<data){
+            if(!left){
+                left=new BST(target);
+            }
+            else{
+                left->insert(target);
+            }
+        }
+
+        else if(target>data){
+            if(!right){
+                right=new BST(target);
+            }
+            else{
+                right->insert(target);
+            }
+        }
     }
     
 };
