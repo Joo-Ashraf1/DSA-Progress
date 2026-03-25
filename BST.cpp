@@ -75,7 +75,7 @@ public:
         if(data==target){
             return true;
         }
-        else if(data<target){
+        else if(data>target){
             return left&&left->findChain(ancestors,target);
         }
         else{
@@ -93,7 +93,7 @@ public:
 
     } 
 
-    pair<int,bool> Successor(int target){
+    pair<bool,int> Successor(int target){
         vector<BST*> ancestors;
         if (!findChain(ancestors, target))
 			return make_pair(false, -1);
