@@ -61,4 +61,39 @@ public:
     node->parent = res;
 }
 
+void insertFixUp(RB* z){
+    
+}
+
+void insert(RB* z){
+    RB* x=root;
+    RB * y=x;
+    while(x!=nullptr){
+        y=x;
+        if(z->value<x->value){
+            x=x->left;
+        }
+        else{
+            x=x->right;
+        }
+    }
+    z->parent=y;
+    if(y==nullptr){
+        root=z;
+    }
+    else if(z->value<y->value){
+        y->left=z;
+    }
+    else{
+        y->right=z;
+    }
+    z->left=nullptr;
+    z->right=nullptr;
+    z->color=true;
+    z->insertFixUp(z);
+
+
+
+}
+
 };
