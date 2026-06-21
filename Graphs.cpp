@@ -30,19 +30,22 @@ bool isCyclic(int node){
 
 }
 
+
+
 void bfs(int node){
-    queue <int> q ;
+    queue<int>q;
     memset(dist,-1,sizeof(dist));
     dist[node]=0;
     q.push(node);
     while(!q.empty()){
-        int node=q.front();
+        int v=q.front();
         q.pop();
-        for(auto v:graph[node]){
-            if(dist[v]==-1){
-                dist[v]=dist[node]+1;
-                q.push(v);
+        for(auto child:graph[node]){
+            if(dist[child]==-1){
+                dist[child]=dist[node]+1;
+                q.push(child);
             }
         }
-}
+
+    }
 }
